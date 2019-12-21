@@ -24,10 +24,38 @@ public class MainClass {
 			System.out.println(temp.data);
 			temp=temp.next;
 		}
-		System.out.println(temp.data);
-		
-		
+		System.out.println(temp.data);		
 	}
+	/*
+	 * Reverse the LinkedList
+	 */
+	public void reverseList() {
+	Node current = head;
+	Node next,prev =null;
+	while(current.next != null) {
+		// move next node to next location of current or head
+		next = current.next;
+		//at first time it's next is null mean prev null
+		current.next = prev;
+		
+		//for the second time the prev value will be current
+		prev = current;	
+		
+		// and current will jump to next
+		current = next;
+	}
+	current.next = prev;
+	while(current.next != null)
+	{
+		System.out.println(current.data);
+		current = current.next;		
+	}
+	
+	System.out.println(current.data);
+	
+		
+	}	
+	
 	/*
 	 * Removing the Duplicate part from the linkList
 	 */
@@ -67,10 +95,13 @@ public class MainClass {
 		test.insert(3);
 		test.insert(4);
 		
+		
 		test.showData();
-		test.removeDuplicates();
-		System.out.println("After Removiing the Duplicate Values");
-		test.showData();
+		System.out.println("\n");
+		test.reverseList();
+		//test.removeDuplicates();
+	//	System.out.println("After Removiing the Duplicate Values");
+	//	test.showData();
 		
 
 	}
